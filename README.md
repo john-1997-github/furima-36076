@@ -37,12 +37,12 @@ Things you may want to cover:
 | first name           | string | null: false             |
 | last name_kana       | string | null: false             |
 | first_name_kana      | string | null: false             |
-| birthday_date        | date   | null: false             |Active Hash
+| birthday_date        | date   | null: false             |
 
 ### Association
 
 - has_many :items
-- has_many :purchase_history
+- has_many :purchase_histories
 
 ## items テーブル
 
@@ -75,8 +75,6 @@ Things you may want to cover:
 | addresses        | string     | null: false                    |
 | building         | string     |                                |
 | phone_number     | string     | null: false                    |
-| user             |references  | null: false, foreign_key: true |
-| item             |references  | null: false, foreign_key: true |
 | purchase_history |references  | null: false, foreign_key: true |
 
 ### Association
