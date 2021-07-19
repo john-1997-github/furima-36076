@@ -7,4 +7,4 @@ class Item < ApplicationRecord
 #   has_one_attached :image
 #   belongs_to :user
 #   belongs_to :purchase_history
-# end
+end
