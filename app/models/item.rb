@@ -3,27 +3,24 @@ with_options presence: true do
 validates :name
 validates :info
 validates :price
-validates :category_id
-validates :sales_status_id
-validates :shipping_fee_status_id
-validates :prefecture_id
-validates :scheduled_delivery_id
+validates :category_id, numericality: { other_than: 0, message: "can't be blank" }
+validates :sales_status_id, numericality: { other_than: 0, message: "can't be blank" }
+validates :shipping_fee_status_id, numericality: { other_than: 0, message: "can't be blank" }
+validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+validates :scheduled_delivery_id, numericality: { other_than: 0, message: "can't be blank" }
 end
 
-validates :image, presence: true, unless: :was_attached?
-
+validates :image, presence: true
 has_one_attached :image
+
 belongs_to :user
-belongs_to :category,numericality: { other_than: 1, message: "can't be blank" } 
-belongs_to :sales_status,numericality: { other_than: 1, message: "can't be blank" } 
-belongs_to :shipping_fee_status,numericality: { other_than: 1, message: "can't be blank" } 
-belongs_to :prefecture,numericality: { other_than: 1, message: "can't be blank" } 
-belongs_to :scheduled_delivery,numericality: { other_than: 1, message: "can't be blank" } 
+belongs_to :category
+belongs_to :sales_status
+belongs_to :shipping_fee_status
+belongs_to :prefecture
+belongs_to :scheduled_delivery
 # belongs_to :purchase_history
 
-def was_attached?
-  self.image.attached?
-end
 
 end
 
