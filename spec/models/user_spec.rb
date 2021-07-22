@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     before do
       @user = FactoryBot.build(:user)
     end
+    
     it '全ての値が正常' do
       expect(@user).to be_valid
     end
