@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     before do
       @user = FactoryBot.build(:user)
     end
-    
+
     it '全ての値が正常' do
       expect(@user).to be_valid
     end
@@ -50,22 +50,22 @@ RSpec.describe User, type: :model do
     end
 
     it 'パスワードは全角では登録できないこと' do
-          @user.password = 'aaaaaaaaa'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('Password is invalid')
+      @user.password = 'aaaaaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password is invalid')
     end
 
     it 'パスワードは英語のみでは登録できないこと' do
       @user.password = 'aaaaaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
-      end
+    end
 
-    it'パスワードは数字のみでは登録できないこと' do
+    it 'パスワードは数字のみでは登録できないこと' do
       @user.password = '123123'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
-      end
+    end
     it 'パスワードとパスワード（確認）は、値の一致が必須であること' do
       @user.password = '123456'
       @user.password_confirmation = '9876834'
@@ -115,4 +115,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-
