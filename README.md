@@ -61,7 +61,6 @@ Things you may want to cover:
 
 ### Association
 
-
 - has_one    :purchase_history
 - belongs_to :user
 
