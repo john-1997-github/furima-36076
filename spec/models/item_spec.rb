@@ -74,11 +74,20 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price out of setting range')
       end
 
+      it '売価格は、¥300~¥9,999,999の間のみ保存可能であること' do
+        @item.price = 100000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price out of setting range')
+      end
+
+
       it '販売価格は半角数字のみ保存可能であること' do
         @item.price = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price half-width number')
       end
+
+
     end
   end
 end
