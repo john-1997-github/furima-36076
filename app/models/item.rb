@@ -7,13 +7,13 @@ class Item < ApplicationRecord
                       inclusion: { in: 300..9_999_999, message: 'out of setting range' }, format: { with: /\A[0-9]+\z/ }
   end
 
-  with_options numericality: { other_than: 0} do
+  with_options numericality: { other_than: 0 } do
     validates :category_id
     validates :sales_status_id
     validates :shipping_fee_status_id
     validates :prefecture_id
     validates :scheduled_delivery_id
-end
+  end
   has_one_attached :image
   belongs_to :user
 
