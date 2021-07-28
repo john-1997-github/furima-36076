@@ -35,8 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-  @item.destroy
-  redirect_to root_path
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -50,11 +50,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-
   def froce_redirect_unless_my_item
-    if @item.user != current_user
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user != current_user
   end
 
   # def order_item
