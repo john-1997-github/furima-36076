@@ -78,7 +78,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :purchase_history
+- belongs_to :order
 
 ## orders テーブル
 
@@ -91,5 +91,5 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :order
+- has_one    :purchase_history
 
