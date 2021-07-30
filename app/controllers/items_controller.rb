@@ -54,9 +54,5 @@ class ItemsController < ApplicationController
     redirect_to root_path if @item.user != current_user
   end
 
-  # def order_item
-  #   if @items.order
-  #     redirect_to root_path
-  #   end
-  # end
+
 end
