@@ -3,7 +3,6 @@ class PurchaseHistory < ApplicationRecord
       validates :postal_code
       validates :city
       validates :addresses
-      validates :building
       validates :phone_number
       validates :prefecture_id
       validates :user_id
