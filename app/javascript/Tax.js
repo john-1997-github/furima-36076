@@ -1,8 +1,8 @@
-function calc (){
+function tax (){
   
   const itemPrice = document.getElementById("item-price");
 
-  itemPrice.addEventListener('input', function(){
+  itemPrice.addEventListener("input",() => {
 
     const itemPriceValue = itemPrice.value
     const Tax = 0.1;
@@ -15,4 +15,4 @@ function calc (){
   })
 }
 
-window.addEventListener('load', calc)
+window.addEventListener('load', tax);
