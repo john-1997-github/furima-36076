@@ -98,6 +98,12 @@ RSpec.describe OrderPurchaseHistory, type: :model do
         @order_purchase_history.valid?
         expect(@order_purchase_history.errors.full_messages).to include("Phone number is invalid")
       end
+
+      it '9桁以下だと登録ができないこと' do
+        @order_purchase_history.phone_number = '123456789'
+        @order_purchase_history.valid?
+        expect(@order_purchase_history.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end
