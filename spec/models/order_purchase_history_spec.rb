@@ -86,6 +86,18 @@ RSpec.describe OrderPurchaseHistory, type: :model do
         @order_purchase_history.valid?
         expect(@order_purchase_history.errors.full_messages).to include("Token can't be blank")
       end
+
+      it '数字のみでないと登録できないこと（ハイフンあり）' do
+        @order_purchase_history.phone_number = '090-1234-5678'
+        @order_purchase_history.valid?
+        expect(@order_purchase_history.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it '全角文字では登録できないこと' do
+        @order_purchase_history.phone_number = '０９０１２３４５６７８'
+        @order_purchase_history.valid?
+        expect(@order_purchase_history.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end
