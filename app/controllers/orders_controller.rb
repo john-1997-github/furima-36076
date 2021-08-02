@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @order_purchase_history = OrderPurchaseHistory.new(order_params)
     if @order_purchase_history.valid?
       pay_item
